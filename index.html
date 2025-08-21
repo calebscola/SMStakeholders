@@ -3,30 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <title>Stakeholders</title>
+  <meta property="og:title" content="Stakeholders">
+  <meta property="og:description" content="3 Park Street Property Overview">
+  <!-- Optional: add an image preview -->
+  <!-- <meta property="og:image" content="https://example.com/preview-image.jpg"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      text-align: center;
+    }
+    #start-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #start-btn {
+      font-size: 22px;
+      padding: 15px 30px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    #start-btn:active {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
-<body style="text-align:center; padding-top: 50px; font-family: Arial, sans-serif;">
+<body>
 
-<h1>Start Presentation</h1>
-<p>Click the button below to start the background music and open the slides.</p>
+<div id="start-screen">
+  <h1>Stakeholders Presentation</h1>
+  <p>Tap the button below to start the background music and open the slides.</p>
+  <button id="start-btn">Start Music & Slides</button>
+</div>
 
 <audio id="bg-music" src="https://audio.jukehost.co.uk/QiLQHDvU69bmJDI5VkKnQAvWvaaXpdl4" loop></audio>
-
-<button id="start-btn" style="font-size: 18px; padding: 10px 20px; margin-top: 20px;">Start Music & Slides</button>
 
 <script>
   const audio = document.getElementById('bg-music');
   const btn = document.getElementById('start-btn');
 
   btn.onclick = () => {
-    // Set volume and play audio
+    // Play audio with volume
     audio.volume = 0.5;
     audio.play().catch(e => console.log("Audio play failed:", e));
 
-    // Open your Google Slides presentation
+    // Open Google Slides in a new tab
     window.open(
       "https://docs.google.com/presentation/d/e/2PACX-1vS3Wqpkok9BrNuh4858wLZ4zKng-lofhr9ua161lvjXPR38j8vsnqOEfXPIYf52RD1e9LomufaAdSdH/pub?start=true&loop=false&delayms=15000",
       "_blank"
     );
+
+    // Optionally hide the start screen
+    document.getElementById('start-screen').style.display = 'none';
   };
 </script>
 
